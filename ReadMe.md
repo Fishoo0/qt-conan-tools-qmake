@@ -9,6 +9,22 @@
     4, In the same directory of your pro file, adding your conanfile.txt
     5, call qmake, conan will do the rest job for you.
 
+
+# Demo
+    your_project_dir
+        your_project.pro
+            CONAN_INSTALL_PARAMS = "--update"
+            include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+        conanfile.txt
+            [requires]
+            openssl/1.1.1k
+            [generators]
+            qmake
+            [options]
+    
+    call 'qmake'
+
+
 # Advantage usage
 ### Behind Logic
     Take advantage of 'qmake' system to run 'conan'
@@ -38,7 +54,6 @@
 
     1, Bug fix
     2, More flexibility usage
-
 
 
 
