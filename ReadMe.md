@@ -1,12 +1,46 @@
 # About Me
 
-    基于QT脚本封装的Conan包 安装和导入的工具。
+    Qt Qmake tools for Conan
 
-# 如何使用
+# Basic Usage
+    1, git clone git@github.com:Fishoo0/qt-conan-tools-qmake.git to YOUR_LOCATION
+    2, Set system evn：CONAN_QT_QMAKE_HOME = YOUR_LOCATION
+    3, In your pro file, adding 'include($$(CONAN_QT_QMAKE_HOME)/conan.pri)'
+    4, In the same directory of your pro file, adding your conanfile.txt
+    5, call qmake, conan will do the rest job for you.
 
-    1，在你的pro文件 include(xxxx/conanTools/connaInstall.pri) 去安装 conan 包。注意，需要将 conanfile.txt 文件放置于你的调用pro文件同级目录；
-    2，在你的pro文件 include(xxx/conanTools/conanSetup.pri) 去引用 conan 包。
+# Advantage usage
+### Behind Logic
+    Take advantage of 'qmake' system to run 'conan'
+### Conan Standard Work Flow
+    work flow：
+    1, cmd 'conan install LOCATION_OF_CONANFILE YOUR_PARAMS' generate cmake or qmake scripts: conanbuildinfo
+    2, include(conanbuildinfo.pri), and call CONFIG += conan_basic_setup to setup conan
+### Tool Work Flow
+    'conan.pri' you called simply calls the following script
+
+    1, call conanInstall.pri, witch calls 'conan install ...'
+
+       NOTE: default we call 'conan install' with no --update, your can adding --update as follows
+            CONAN_INSTALL_PARAMS = "--update"
+            include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+
+
+    2, call conanBasicSetup.pri, witch calls 'conanbuildinfo.pri' and setup script.
+
+
+    3, if TEMPATE is app, call conanDeploySetup.pri, witch parce conan_libs, and then add conan libs to INSTALLS target. When we call cmake install, we copy conan libs to our dest dir.
+
+       NOTE: Default dest dir is $$DEST. If it is empty, $$OUT_PWD would used. And if debug_and_release set, $$OUT_PWD/debug or $$OUT_PWD/release would be used.
+
 
 # TODO
 
-    1，有待更灵活的配置
+    1, Bug fix
+    2, More flexibility usage
+
+
+
+
+# Author
+    Fish, mail: 790105840@qq.com
