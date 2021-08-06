@@ -45,9 +45,13 @@
     2, call conanBasicSetup.pri, witch calls 'conanbuildinfo.pri' and setup script.
 
 
-    3, if TEMPATE is app, call conanDeploySetup.pri, witch parce conan_libs, and then add conan libs to INSTALLS target. When we call cmake install, we copy conan libs to our dest dir.
+    3, call conanDeploySetup.pri, witch parce conan_libs, and then add conan libs to INSTALLS target. Then with 'cmake install', we copy conan libs to our dest dir.
 
-       NOTE: Default dest dir is $$DEST. If it is empty, $$OUT_PWD would used. And if debug_and_release set, $$OUT_PWD/debug or $$OUT_PWD/release would be used.
+       NOTE: Default we ignore this script, only triggered when 'CONAN_ENABLE_DEPLOY = true' set before calling conan.pri. 
+            CONAN_ENABLE_DEPLOY = true
+            include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+
+       NOTE: Default dest dir is $$DESTDIR. If it is empty, $$OUT_PWD would be used. And if debug_and_release set, $$OUT_PWD/debug or $$OUT_PWD/release would be used.
 
 
 # TODO
