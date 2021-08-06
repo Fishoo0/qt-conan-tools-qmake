@@ -14,7 +14,6 @@ if:!isEmpty(DESTDIR) {
         }
     }
 }
-message("setup conan install target")
 CONFIG(release, debug|release) {
     targetConanBin.path = $$conan_deploy_dest_dir
 } else {
