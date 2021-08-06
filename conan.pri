@@ -1,7 +1,7 @@
 # install conan libs
 include(conanInstall.pri)
 include(conanBasicSetup.pri)
-equals(TEMPLATE, app) {
+equals(CONAN_ENABLE_DEPLOY, true) {
     include(conanDeploySetup.pri)
 }
 

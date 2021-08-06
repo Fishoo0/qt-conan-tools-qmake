@@ -2,7 +2,9 @@
 message("conanDeploySetup")
 
 conan_deploy_dest_dir = ""
-if:!isEmpty(DESTDIR) {
+
+message("DESTDIR $$DESTDIR")
+!isEmpty(DESTDIR) {
     conan_deploy_dest_dir = $$DESTDIR
 } else {
     conan_deploy_dest_dir = $$OUT_PWD
@@ -14,6 +16,7 @@ if:!isEmpty(DESTDIR) {
         }
     }
 }
+message("conan_deploy_dest_dir $$conan_deploy_dest_dir")
 CONFIG(release, debug|release) {
     targetConanBin.path = $$conan_deploy_dest_dir
 } else {

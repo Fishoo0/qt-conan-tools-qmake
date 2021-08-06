@@ -1,10 +1,7 @@
 # install conan libs
 # if you want "conan install --update", specify CONAN_INSTALL_UPDATE = true in your calling pro
-
 !build_pass {
-
     win32 {
-        message("conanInstall ...")
         CONFIG(release, debug|release) {
             CONAN_BUILD_TYPE = Release
         } else {
