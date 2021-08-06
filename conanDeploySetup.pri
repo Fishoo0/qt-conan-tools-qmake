@@ -16,7 +16,6 @@ message("DESTDIR $$DESTDIR")
         }
     }
 }
-message("conan_deploy_dest_dir $$conan_deploy_dest_dir")
 CONFIG(release, debug|release) {
     targetConanBin.path = $$conan_deploy_dest_dir
 } else {
