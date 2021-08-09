@@ -4,8 +4,8 @@
 
 # Basic Usage
     1, git clone git@github.com:Fishoo0/qt-conan-tools-qmake.git to YOUR_LOCATION
-    2, Set system evn：CONAN_QT_QMAKE_HOME = YOUR_LOCATION
-    3, In your pro file, adding 'include($$(CONAN_QT_QMAKE_HOME)/conan.pri)'
+    2, Install:  install.bat
+    3, In your pro file, adding include($$(applyConanPlugin)) or 'include($$(CONAN_QT_QMAKE_HOME)/conan.pri)'
     4, In the same directory of your pro file, adding your conanfile.txt
     5, call qmake, conan will do the rest job for you.
 
@@ -39,7 +39,7 @@
 
        NOTE: default we call 'conan install' with no --update, your can adding --update as follows
             CONAN_INSTALL_PARAMS = "--update"
-            include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+            include($$(applyConanPlugin)) or include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
 
 
     2, call conanBasicSetup.pri, witch calls 'conanbuildinfo.pri' and setup script.
@@ -49,7 +49,7 @@
 
        NOTE: Default we ignore this script, only triggered when 'CONAN_ENABLE_DEPLOY = true' set before calling conan.pri. 
             CONAN_ENABLE_DEPLOY = true
-            include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+            include($$(applyConanPlugin)) or include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
 
        NOTE: Default dest dir is $$DESTDIR. If it is empty, $$OUT_PWD would be used. And if debug_and_release set, $$OUT_PWD/debug or $$OUT_PWD/release would be used.
 
