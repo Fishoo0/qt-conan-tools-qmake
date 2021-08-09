@@ -8,7 +8,7 @@ setx -m CONAN_QT_QMAKE_HOME %~dp0
 setx -m applyConanPlugin %~dp0conan.pri
 
 echo.
-echo Conan Qt Plugin has been installed successfully. You can call 'include($$(applyConanPlugin))' or 'include($$(CONAN_QT_QMAKE_TOOL)/conan.pri)' in your profile to enable conan plugin, more detail check https://github.com/Fishoo0/qt-conan-tools-qmake.
+echo Conan Qt Plugin has been installed successfully. You can call 'include($$(applyConanPlugin))' or 'include($$(CONAN_QT_QMAKE_HOME)/conan.pri)' in your profile to enable conan plugin, more detail check https://github.com/Fishoo0/qt-conan-tools-qmake.
 echo.
 
 pause
