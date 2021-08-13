@@ -18,6 +18,18 @@ if "%qtVersion%" == ""  (
 	set qtVersion=5.15.0
 )
 
+if "%QT_HOME%" == "" (
+	set QT_HOME=C:\Qt
+)
+
+if "%VS2017_HOME%" == "" (
+	set VS2017_HOME="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional"
+)
+
+if "%VS2019_HOME%" == "" (
+	set VS2019_HOME=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+)
+
 echo ###########################################################################################################
 echo #   
 echo #  The following softs must be installed: qtVersion, VS2017, VS2019, Python, Perl, Git and etc   
