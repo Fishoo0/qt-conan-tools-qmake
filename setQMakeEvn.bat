@@ -14,20 +14,22 @@
 set qtVersion=%1
 set arch=%2
 
+set START_DIR="%cd%"
+
 if "%qtVersion%" == ""  (
-	set qtVersion=5.15.0
+	set "qtVersion=5.15.0"
 )
 
 if "%QT_HOME%" == "" (
-	set QT_HOME=C:\Qt
+	set "QT_HOME=C:\Qt"
 )
 
 if "%VS2017_HOME%" == "" (
-	set VS2017_HOME="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional"
+	set "VS2017_HOME=C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional"
 )
 
 if "%VS2019_HOME%" == "" (
-	set VS2019_HOME=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+	set "VS2019_HOME=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional"
 )
 
 echo ###########################################################################################################
@@ -88,10 +90,9 @@ echo Check Git ...
 git --version
 echo. & echo.
 
-echo Check perl ...
-perl -v
-echo. & echo.
+cd %START_DIR%
 
 echo All done.
+
 
 :end
