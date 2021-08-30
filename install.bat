@@ -6,16 +6,19 @@ net file 1>NUL 2>NUL & if ERRORLEVEL 1 (echo You must right-click and select "RU
 
 set INSTALL_DIR=C:\Qt\Tools\Conan\qt-conan-tools-qmake
 rmdir /s /q %INSTALL_DIR%
-xcopy %~dp0\* %INSTALL_DIR% /i
+xcopy %~dp0\* %INSTALL_DIR% /i /s /e
 
-setx -m CONAN_QT_QMAKE_HOME %INSTALL_DIR%
-setx -m applyConanPlugin %INSTALL_DIR%\conan.pri
-setx -m applyCommonConfig %INSTALL_DIR%\commonConfig.pri
+setx -m QT_QMAKE_EXTENSION_HOME %INSTALL_DIR%
+setx -m CONAN_QT_QMAKE_HOME %INSTALL_DIR%\conan
+setx -m applyConanPlugin %INSTALL_DIR%\conan\conan.pri
+setx -m applyCommonConfig %INSTALL_DIR%\config\commonConfig.pri
+setx -m setGitRevision %INSTALL_DIR%\utils\gitRevision.pri
 
 echo.
 echo Conan Qt Plugin has been installed successfully, more detail check https://github.com/Fishoo0/qt-conan-tools-qmake.
-echo call 'include($$(applyConanPlugin))' or 'include($$(CONAN_QT_QMAKE_HOME)/conan.pri)' in your profile to enable conan plugin
-echo call 'include($$(applyCommonConfig))' to enable common config
+echo call 'include($$(applyConanPlugin))' in your pro file to enable conan plugin
+echo call 'include($$(applyCommonConfig))' in your pro file to enable common config
+echo call 'include($$(setGitRevision))' in your pro file to set GIT_REVISION of your project
 echo.
 
 pause

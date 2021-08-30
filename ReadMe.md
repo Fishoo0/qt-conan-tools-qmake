@@ -39,7 +39,7 @@
 
        NOTE: default we call 'conan install' with no --update, your can adding --update as follows
             CONAN_INSTALL_PARAMS = "--update"
-            include($$(applyConanPlugin)) or include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+            include($$(applyConanPlugin))
 
 
     2, call conanBasicSetup.pri, witch calls 'conanbuildinfo.pri' and setup script.
@@ -49,7 +49,7 @@
 
        NOTE: Default we ignore this script, only triggered when 'CONAN_ENABLE_DEPLOY = true' set before calling conan.pri. 
             CONAN_ENABLE_DEPLOY = true
-            include($$(applyConanPlugin)) or include($$(CONAN_QT_QMAKE_HOME)/conan.pri)
+            include($$(applyConanPlugin))
 
        NOTE: Default dest dir is $$DESTDIR. If it is empty, $$OUT_PWD would be used. And if debug_and_release set, $$OUT_PWD/debug or $$OUT_PWD/release would be used.
 
