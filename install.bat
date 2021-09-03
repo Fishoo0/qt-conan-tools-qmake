@@ -19,6 +19,7 @@ echo.
 echo Conan Qt Plugin has been installed successfully, more detail check https://github.com/Fishoo0/qt-conan-tools-qmake.
 echo call 'include($$(applyConanPlugin))' in your pro file to enable conan plugin
 echo call 'include($$(applyCommonConfig))' in your pro file to enable common config
+echo call 'include($$(applyDestDirConfig))' in your pro file to enable dest dir config
 echo call 'include($$(setGitRevision))' in your pro file to set GIT_REVISION of your project
 echo.
 
